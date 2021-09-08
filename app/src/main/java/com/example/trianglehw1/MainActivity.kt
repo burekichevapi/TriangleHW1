@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     private val donateFragment: donate_fragment = donate_fragment()
     private val triangleFragment: triangle_fragment = triangle_fragment()
 
+    //  changed
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
         val transaction = supportFragmentManager.beginTransaction()
