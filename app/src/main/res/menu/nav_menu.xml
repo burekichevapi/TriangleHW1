@@ -3,21 +3,21 @@
     <item
         android:id="@+id/ic_reset_screen_button"
         android:icon="@drawable/ic_reset_screen_button"
-        android:title="Reset Screen" />
+        android:title="@string/title_reset_screen" />
 
     <item
         android:id="@+id/ic_back_nav_button"
         android:icon="@drawable/ic_back_nav_button"
-        android:title="Back" />
+        android:title="@string/title_back" />
 
     <item
         android:id="@+id/ic_forward_nav_button"
         android:icon="@drawable/ic_forward_nav_button"
-        android:title="Forward" />
+        android:title="@string/title_forward" />
 
     <item
         android:id="@+id/ic_donate_nav_button"
         android:icon="@drawable/ic_donate_nav_button"
-        android:title="Donate" />
+        android:title="@string/title_donate" />
 
 </menu>

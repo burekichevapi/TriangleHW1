@@ -35,7 +35,7 @@ class triangle_fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_triangle_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_triangle_container, container, false)
     }
 
     companion object {
