@@ -1,6 +1,5 @@
 package com.example.trianglehw1
 
-
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.core.app.ActivityScenario
@@ -13,7 +12,6 @@ import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
@@ -29,36 +27,12 @@ class ExitButtonEspressoTest {
 
     @Test
     fun exitButtonTest() {
-        val materialButton = onView(
-            allOf(
-                withId(R.id.btn_Exit), withText("Exit"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.fragment_container),
-                        0
-                    ),
-                    3
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton.perform(click())
-        //TODO: Check for exit confirmation popup
-        assert(false)
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
 
-        /*val textView = onView(
-            allOf(
-                withText("Triangle App"),
-                withParent(
-                    allOf(
-                        withId(R.id.action_bar),
-                        withParent(withId(R.id.action_bar_container))
-                    )
-                ),
-                isDisplayed()
-            )
-        )
-        textView.check(matches(withText("Triangle App")))*/
+        onView(withId(R.id.btn_Exit)).perform(click())
+
+        onView(withId(R.id.exit_dialog)).check(matches(isDisplayed()))
+
     }
 
     private fun childAtPosition(
