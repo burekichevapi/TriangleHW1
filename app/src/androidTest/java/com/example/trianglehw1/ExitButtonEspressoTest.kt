@@ -3,6 +3,7 @@ package com.example.trianglehw1
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
