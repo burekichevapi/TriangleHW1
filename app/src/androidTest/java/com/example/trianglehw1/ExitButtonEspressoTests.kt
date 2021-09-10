@@ -19,7 +19,7 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class ExitButtonEspressoTest {
+class ExitButtonEspressoTests {
 
     @Rule
     @JvmField
@@ -27,12 +27,21 @@ class ExitButtonEspressoTest {
 
     @Test
     fun exitButtonTest() {
+        //Setup
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+        val exitButton = onView(withId(R.id.btn_Exit))
 
+        //Verify
+        exitButton.check(matches(isDisplayed()))
+    }
+
+    fun exitButtonNavigationTest() {
+        //Setup
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         onView(withId(R.id.btn_Exit)).perform(click())
 
+        //Verify
         onView(withId(R.id.exit_dialog)).check(matches(isDisplayed()))
-
     }
 
     private fun childAtPosition(
