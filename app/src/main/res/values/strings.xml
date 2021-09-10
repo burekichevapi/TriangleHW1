@@ -7,4 +7,6 @@
     <string name="title_triangle_page">Triangle Page</string>
     <string name="title_startup_page">Startup Page</string>
     <string name="title_donate_page">Donate Page</string>
+    <string name="description_triangle_usage">
+</string>
 </resources>

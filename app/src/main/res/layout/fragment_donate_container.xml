@@ -7,10 +7,10 @@
     tools:context=".fragments.donate_fragment">
 
     <TextView
-        android:id="@+id/donate"
+        android:id="@+id/triangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="donate fragment"
+        android:text="Donate Fragment"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
