@@ -4,5 +4,7 @@
     <string name="title_reset_screen">Reset Screen</string>
     <string name="title_back">Back</string>
     <string name="title_forward">Forward</string>
-    <string name="title_donate">Donate</string>
+    <string name="title_triangle_page">Triangle Page</string>
+    <string name="title_startup_page">Startup Page</string>
+    <string name="title_donate_page">Donate Page</string>
 </resources>

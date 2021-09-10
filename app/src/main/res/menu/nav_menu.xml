@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/ic_reset_screen_button"
-        android:icon="@drawable/ic_reset_screen_button"
-        android:title="@string/title_reset_screen" />
 
     <item
-        android:id="@+id/ic_back_nav_button"
-        android:icon="@drawable/ic_back_nav_button"
-        android:title="@string/title_back" />
+        android:id="@+id/ic_startup_nav_button"
+        android:icon="@drawable/ic_startup_nav_button"
+        android:title="@string/title_startup_page" />
 
     <item
-        android:id="@+id/ic_forward_nav_button"
-        android:icon="@drawable/ic_forward_nav_button"
-        android:title="@string/title_forward" />
+        android:id="@+id/ic_triangle_nav_button"
+        android:icon="@drawable/ic_triangle_nav_button"
+        android:title="@string/title_triangle_page" />
 
     <item
         android:id="@+id/ic_donate_nav_button"
         android:icon="@drawable/ic_donate_nav_button"
-        android:title="@string/title_donate" />
+        android:title="@string/title_donate_page" />
+    <item
+        android:id="@+id/ic_reset_screen_button"
+        android:icon="@drawable/ic_reset_screen_button"
+        android:title="@string/title_reset_screen" />
 
 </menu>
