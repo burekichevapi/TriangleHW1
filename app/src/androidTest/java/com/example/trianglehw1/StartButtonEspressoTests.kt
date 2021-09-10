@@ -3,8 +3,10 @@ package com.example.trianglehw1
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -19,32 +21,32 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class StartButtonEspressoTest {
+class StartButtonEspressoTests {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun startButtonEspressoTest() {
-        val materialButton = onView(
-            allOf(
-                withId(R.id.btn_Start), withText("Start"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.fragment_container),
-                        0
-                    ),
-                    2
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton.perform(click())
-        //TODO: Check loading of triangle_fragment
-        assert(false)
+    fun startButtonIsDisplayed() {
+        //Setup
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+        val startButton = onView(withId(R.id.btn_Start))
+
+        //Verify
+        startButton.check(ViewAssertions.matches(isDisplayed()))
     }
 
+    @Test
+    fun startButtonNavigatesToTriangleFragment() {
+        //Setup
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+        val startButton = onView(withId(R.id.btn_Start))
+        startButton.perform(click())
+
+        //Verify
+        onView(withId(R.id.triangle_fragment)).check(ViewAssertions.matches(isDisplayed()))
+    }
     private fun childAtPosition(
         parentMatcher: Matcher<View>, position: Int
     ): Matcher<View> {
