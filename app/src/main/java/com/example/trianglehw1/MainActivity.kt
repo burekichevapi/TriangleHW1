@@ -32,11 +32,6 @@ class MainActivity : AppCompatActivity() {
         setFragment(triangleFragment)
     }
 
-    fun quitApp(view: View) {
-        this@MainActivity.finish()
-        exitProcess(0)
-    }
-
     private fun setNavigationBarRoutes() {
         view_BottomNavBar.setOnNavigationItemSelectedListener {
             when(it.itemId){
