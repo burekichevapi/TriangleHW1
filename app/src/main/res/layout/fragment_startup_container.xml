@@ -21,65 +21,53 @@
 
         <TextView
             android:id="@+id/label_AppPurpose"
-            android:layout_width="367dp"
-            android:layout_height="189dp"
-            android:fontFamily="serif"
+            android:layout_width="371dp"
+            android:layout_height="192dp"
+            android:fontFamily="sans-serif-condensed"
             android:justificationMode="inter_word"
-            android:text="Purpose:
-                The TrinagleApp will display the different types of triangles that can be created depending on the inputted triangle side lengths:
-                Scalene: No sides of equal lengths, No equal angles, No lines of symmetry
-                Isosceles: Two sides of equal lengths, Two equal angles, One lines of symmetry
-                Equilateral: Three sides of equal lengths, Three angles, all equal to 60°, Three lines of symmetry"
+            android:text="Purpose:\n\nThe TrinagleApp will display the different types of triangles that can be created depending on the inputted triangle side lengths:\nScalene: No sides of equal lengths, No equal angles, No lines of symmetry\nIsosceles: Two sides of equal lengths, Two equal angles, One lines of symmetry\nEquilateral: Three sides of equal lengths, Three angles, all equal to 60°, Three lines of symmetry"
             app:layout_constraintBottom_toTopOf="@+id/label_AppUsage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.363"
+            app:layout_constraintHorizontal_bias="0.375"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.893" />
+            app:layout_constraintVertical_bias="0.886" />
 
         <TextView
             android:id="@+id/label_AppUsage"
             android:layout_width="372dp"
             android:layout_height="270dp"
-            android:fontFamily="serif"
+            android:fontFamily="sans-serif-condensed"
             android:justificationMode="inter_word"
-            android:text="Usage:
-                Inputted Values - The user will be able to input values  between 0.1 and 100.
-                Navigation Bar - Will allow users to refresh, navigate between the screens, and contains the Donation Button.
-                Clear Button - Will allow users to erase previous inputs and outputs.
-                Display Triangle Button - Will dispay the type of triangle and an image of the triangle in the output window.
-                Donation Button - Will redir4ect users to the donation screen where users can input their information to donate.
-                Exit Button - Will terminate the TriangleApp"
+            android:text="Usage:\n\nInputted Values - The user will be able to input values between 0.1 and 100.\nNavigation Bar - Will allow users to refresh, navigate between the screens, and contains the Donation Button.\nClear Button - Will allow users to erase previous inputs and outputs.\nDisplay Triangle Button - Will display the type of triangle and an image of the triangle in the output window.\nDonation Button - Will redirect users to the donation screen where users can input their information to donate.\nExit Button - Will terminate the TriangleApp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintHorizontal_bias="0.384"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.643" />
+            app:layout_constraintVertical_bias="0.683" />
 
         <Button
             android:id="@+id/btn_Start"
-            android:text="Start"
-            android:onClick="navigateToTriangleFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="80dp"
+            android:text="Start"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.838" />
+            app:layout_constraintVertical_bias="0.885" />
 
         <Button
             android:id="@+id/btn_Exit"
-            android:text="Exit"
-            android:onClick="quitApp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Exit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_Start"
             app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.838" />
+            app:layout_constraintVertical_bias="0.885" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
