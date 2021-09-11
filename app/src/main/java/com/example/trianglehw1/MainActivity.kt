@@ -2,6 +2,8 @@ package com.example.trianglehw1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import com.example.trianglehw1.fragments.donate_fragment
@@ -9,6 +11,8 @@ import com.example.trianglehw1.fragments.startup_fragment
 import com.example.trianglehw1.fragments.triangle_fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_startup_container.*
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,10 +22,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
 
         setFragment(startupFragment)
+        setNavigationBarRoutes()
+    }
+
+    fun navigateToTriangleFragment(view: View) {
+        setFragment(triangleFragment)
+    }
+
+    fun quitApp(view: View) {
+        this@MainActivity.finish()
+        exitProcess(0)
+    }
+
+    private fun setNavigationBarRoutes() {
         view_BottomNavBar.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.ic_startup_nav_button -> setFragment(startupFragment)

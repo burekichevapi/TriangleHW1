@@ -7,6 +7,7 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -34,7 +35,7 @@ class StartButtonEspressoTests {
         val startButton = onView(withId(R.id.btn_Start))
 
         //Verify
-        startButton.check(ViewAssertions.matches(isDisplayed()))
+        startButton.check(matches(isDisplayed()))
     }
 
     @Test
@@ -45,7 +46,7 @@ class StartButtonEspressoTests {
         startButton.perform(click())
 
         //Verify
-        onView(withId(R.id.triangle_fragment)).check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.triangle_fragment)).check(matches(isDisplayed()))
     }
     private fun childAtPosition(
         parentMatcher: Matcher<View>, position: Int
