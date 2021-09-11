@@ -72,7 +72,7 @@ class StartupPageTest {
 
         //Verify
         textView.check(matches(withSubstring("Usage:")))
-        textView.check(matches(withSubstring("Inputted Values - The user will be able to input values  between 0.1 and 100.")))
+        textView.check(matches(withSubstring("Inputted Values - The user will be able to input values between 0.1 and 100.")))
         textView.check(matches(withSubstring("Navigation Bar - Will allow users to refresh, navigate between the screens, and contains the Donation Button.")))
         textView.check(matches(withSubstring("Clear Button - Will allow users to erase previous inputs and outputs.")))
         textView.check(matches(withSubstring("Display Triangle Button - Will display the type of triangle and an image of the triangle in the output window.")))
