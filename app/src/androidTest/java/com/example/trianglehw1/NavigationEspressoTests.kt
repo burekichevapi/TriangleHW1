@@ -26,6 +26,17 @@ class NavigationEspressoTests {
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
+    fun startButtonNavigatesToTriangleFragment() {
+        //Setup
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+        val triangleButton = onView(withId(R.id.btn_Start))
+        triangleButton.perform(click())
+
+        //Verify
+        onView(withId(R.id.triangle_fragment)).check(matches(isDisplayed()))
+    }
+
+    @Test
     fun triangleButtonNavigatesToTriangleFragment() {
         //Setup
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
