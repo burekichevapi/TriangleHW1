@@ -25,7 +25,7 @@
             android:layout_height="192dp"
             android:fontFamily="sans-serif-condensed"
             android:justificationMode="inter_word"
-            android:text="Purpose:\n\nThe TrinagleApp will display the different types of triangles that can be created depending on the inputted triangle side lengths:\nScalene: No sides of equal lengths, No equal angles, No lines of symmetry\nIsosceles: Two sides of equal lengths, Two equal angles, One lines of symmetry\nEquilateral: Three sides of equal lengths, Three angles, all equal to 60°, Three lines of symmetry"
+            android:text="Purpose:\n\nThe TriangleApp will display the different types of triangles that can be created depending on the inputted triangle side lengths:\nScalene: No sides of equal lengths, No equal angles, No lines of symmetry\nIsosceles: Two sides of equal lengths, Two equal angles, One lines of symmetry\nEquilateral: Three sides of equal lengths, Three angles, all equal to 60°, Three lines of symmetry"
             app:layout_constraintBottom_toTopOf="@+id/label_AppUsage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.375"
