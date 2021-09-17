@@ -39,7 +39,7 @@
             android:layout_height="270dp"
             android:fontFamily="sans-serif-condensed"
             android:justificationMode="inter_word"
-            android:text="Usage:\n\nInputted Values - The user will be able to input values between 0.1 and 100.\nNavigation Bar - Will allow users to refresh, navigate between the screens, and contains the Donation Button.\nClear Button - Will allow users to erase previous inputs and outputs.\nDisplay Triangle Button - Will display the type of triangle and an image of the triangle in the output window.\nDonation Button - Will redirect users to the donation screen where users can input their information to donate.\nExit Button - Will terminate the TriangleApp"
+            android:text="Usage:\n\nInputted Values - The user will be able to input values between 0.1 and 100.\nNavigation Bar - Will allow users to refresh, navigate between the screens, and contains the Donation Button.\nClear Button - Will allow users to erase previous inputs and outputs.\nDisplay Triangle Button - Will display the type of triangle and an image of the triangle in the output window.\nDonation Button - Will redirect users to the donation screen where users can input their information to donate.\n            "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.384"

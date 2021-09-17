@@ -68,7 +68,7 @@ class StartupPageTest {
         textView.check(matches(withSubstring("Clear Button - Will allow users to erase previous inputs and outputs.")))
         textView.check(matches(withSubstring("Display Triangle Button - Will display the type of triangle and an image of the triangle in the output window.")))
         textView.check(matches(withSubstring("Donation Button - Will redirect users to the donation screen where users can input their information to donate.")))
-        textView.check(matches(withSubstring("Exit Button - Will terminate the TriangleApp")))
+        textView.check(matches(withSubstring("            ")))
 
     }
 }
