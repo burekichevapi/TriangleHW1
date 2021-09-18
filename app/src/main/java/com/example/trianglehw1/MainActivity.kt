@@ -1,13 +1,23 @@
 package com.example.trianglehw1
 
+import android.graphics.drawable.shapes.Shape
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.trianglehw1.fragments.donate_fragment
 import com.example.trianglehw1.fragments.startup_fragment
 import com.example.trianglehw1.fragments.triangle_fragment
 import kotlinx.android.synthetic.main.activity_main.*
+import com.example.trianglehw1.Shapes.ShapeFactory
+import com.example.trianglehw1.Shapes.Triangles.Triangle
+import kotlinx.android.synthetic.main.fragment_donate_container.*
+import kotlinx.android.synthetic.main.fragment_triangle_container.*
+import kotlinx.android.synthetic.main.fragment_triangle_container.view.*
+import kotlinx.coroutines.suspendAtomicCancellableCoroutine
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +35,64 @@ class MainActivity : AppCompatActivity() {
 
     fun navigateToTriangleFragment(view: View) {
         setFragment(triangleFragment)
+    }
+
+    fun determineTriangle(view: View) {
+
+        val sSideA: String = triangle_fragment.edtTriangleSideA.text.toString()
+        if (sSideA.isNullOrBlank()) {
+            sendAlert(0)
+            return
+        }
+        val dSideA: Double = sSideA.toDouble()
+        if (dSideA <= 0 || dSideA > 100) {
+            sendAlert(1)
+            return
+        }
+
+        val sSideB: String = triangle_fragment.edtTriangleSideB.text.toString()
+        if (sSideB.isNullOrBlank()) {
+            sendAlert(0)
+            return
+        }
+        val dSideB: Double = sSideB.toDouble()
+        if (dSideB <= 0 || dSideB > 100) {
+            sendAlert(1)
+            return
+        }
+
+        val sSideC: String = triangle_fragment.edtTriangleSideC.text.toString()
+        if (sSideC.isNullOrBlank()) {
+            sendAlert(0)
+            return
+        }
+        val dSideC: Double = sSideC.toDouble()
+        if (dSideC <= 0 || dSideC > 100) {
+            sendAlert(1)
+            return
+        }
+
+        val tri = ShapeFactory.create(arrayOf(dSideA, dSideB, dSideC))
+
+        val iImageID = tri.getPictureId()
+
+        triangleFragment.ctrTriangleImage.setImageResource(iImageID)
+
+    }
+
+    fun clearTriangle(view: View) {
+        triangle_fragment.edtTriangleSideA.text.clear()
+        triangle_fragment.edtTriangleSideB.text.clear()
+        triangle_fragment.edtTriangleSideC.text.clear()
+
+        triangleFragment.ctrTriangleImage.setImageResource(R.drawable.null_triangle)
+
+    }
+
+    fun sendAlert(int: Int) {
+        //  TODO: if int == 0 then present null alert message
+        //  TODO: if int == 1 then present value must be >0 and <100 message
+
     }
 
     private fun setNavigationBarRoutes() {
