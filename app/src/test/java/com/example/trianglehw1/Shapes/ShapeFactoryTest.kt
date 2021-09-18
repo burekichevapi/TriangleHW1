@@ -3,63 +3,98 @@ package com.example.trianglehw1.Shapes
 import com.example.trianglehw1.Shapes.Triangles.EquilateralTriangle
 import com.example.trianglehw1.Shapes.Triangles.IsoscelesTriangle
 import com.example.trianglehw1.Shapes.Triangles.ScaleneTriangle
-import junit.framework.Assert.assertEquals
+import com.example.trianglehw1.Result
+import com.example.trianglehw1.Shapes.Triangles.NullTriangle
+import junit.framework.Assert.*
+import org.junit.Assert
 import org.junit.Test
+import java.lang.Error
 
 internal class ShapeFactoryTest{
 
     @Test
     fun `Equilateral Triangle`(){
-        var equilateralTriangle = ShapeFactory.create(
+        //Arrange
+        var expectedResult = EquilateralTriangle()::class
+        //Act
+        var sut = ShapeFactory.create(
             sides = arrayOf(1.0, 1.0, 1.0)
         )
 
-        assertEquals(equilateralTriangle::class, EquilateralTriangle()::class)
+        //Assert
+        if (sut is Result.Ok)
+            assertTrue(sut.value is EquilateralTriangle)
+        else
+            fail()
     }
 
     @Test
     fun `Scalene triangle1`(){
-        var scaleneTriangle = ShapeFactory.create(
+        //Arrange
+        var expected = ScaleneTriangle::class.java
+
+        //Act
+        var sut = ShapeFactory.create(
             sides = arrayOf(1.0,2.0,3.0)
         )
+        if (sut is Result.Ok)
+            assertTrue(sut.value is ScaleneTriangle)
+        else
+            fail()
 
-        assertEquals(scaleneTriangle::class, ScaleneTriangle()::class)
     }
 
     @Test
     fun `Isosceles Triangle`(){
-        var isoscelesTriangle = ShapeFactory.create(
+        //Act
+        var sut = ShapeFactory.create(
             sides = arrayOf(1.0, 1.0, 2.0)
         )
 
-        assertEquals(isoscelesTriangle::class, IsoscelesTriangle()::class)
+        //Assert
+        if (sut is Result.Ok)
+            assertTrue(sut.value is IsoscelesTriangle)
+        else
+            fail()
     }
 
     @Test
     fun `Minimum Number of Inputs haven't been Added`(){
-        var minimumInputs = ShapeFactory.create(
+        //Act
+        var sut = ShapeFactory.create(
             sides = arrayOf(1.0, 2.0)
         )
 
-        assertEquals(minimumInputs::class, Shape.Null::class)
+        //Assert
+        if(sut is Result.Error)
+            assertTrue(sut.error is NullTriangle)
+        else
+            fail()
     }
 
     @Test
     fun `Maximum Number of Inputs was Exceeded`(){
-        var maximumInputs = ShapeFactory.create(
+        var sut = ShapeFactory.create(
             sides = arrayOf(1.0, 2.0, 3.0, 4.0)
         )
 
-        assertEquals(maximumInputs::class, Shape.Null::class)
+        //Assert
+        assertTrue(sut is Result.Error)
+        if (sut is Result.Error)
+            assertTrue(sut.error is NullTriangle)
+        else
+            fail()
     }
 
     @Test
     fun `Lower Limit Boundary Testing`() {
-        var results = ShapeFactory.create(
+        var sut = ShapeFactory.create(
             sides = arrayOf(0.0, -1.0, -2.0)
         )
 
-        var totalResult = results.getDescription()
-        assertEquals("null", totalResult)
+        if(sut is Result.Error)
+            assertTrue(sut.error is NullTriangle)
+        else
+            fail()
     }
 }
