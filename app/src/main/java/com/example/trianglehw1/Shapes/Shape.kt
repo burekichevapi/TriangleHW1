@@ -7,10 +7,10 @@ enum class ShapeType(val numberOfSides: Int) {
 abstract class Shape {
 
     companion object Null: Shape() {
-        override fun getPicture(): String = "null"
-        override fun getName(): String = "null"
+        override fun getPictureId(): Int = -1
+        override fun getDescription(): String = "null"
     }
 
-    abstract fun getPicture(): String
-    abstract fun getName(): String
+    abstract fun getPictureId(): Int
+    abstract fun getDescription(): String
 }

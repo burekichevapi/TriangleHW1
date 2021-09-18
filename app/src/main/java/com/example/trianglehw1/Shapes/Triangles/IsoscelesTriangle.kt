@@ -1,12 +1,14 @@
 package com.example.trianglehw1.Shapes.Triangles
 
+import com.example.trianglehw1.R
+
 class IsoscelesTriangle(): Triangle() {
 
-    override fun getPicture(): String {
-        return "This is a picture of a Isosceles Triangle"
+    override fun getPictureId(): Int {
+        return R.drawable.isosceles_triangle
     }
 
-    override fun getName(): String {
-        return "Isosceles Triangle"
+    override fun getDescription(): String {
+        return R.string.isosceles_triangle_description.toString()
     }
 }

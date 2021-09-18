@@ -3,8 +3,8 @@ package com.example.trianglehw1.Shapes
 import com.example.trianglehw1.Shapes.Triangles.EquilateralTriangle
 import com.example.trianglehw1.Shapes.Triangles.IsoscelesTriangle
 import com.example.trianglehw1.Shapes.Triangles.ScaleneTriangle
+import junit.framework.Assert.assertEquals
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
 
 internal class ShapeFactoryTest{
 
@@ -54,12 +54,12 @@ internal class ShapeFactoryTest{
     }
 
     @Test
-    fun `Lower Limit Boundary Testing`(){
+    fun `Lower Limit Boundary Testing`() {
         var results = ShapeFactory.create(
             sides = arrayOf(0.0, -1.0, -2.0)
         )
 
-        var totalResult = results.getName()
+        var totalResult = results.getDescription()
         assertEquals("null", totalResult)
     }
 }

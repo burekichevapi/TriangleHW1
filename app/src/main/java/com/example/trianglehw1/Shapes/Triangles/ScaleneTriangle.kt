@@ -1,12 +1,14 @@
 package com.example.trianglehw1.Shapes.Triangles
 
+import com.example.trianglehw1.R
+
 class ScaleneTriangle(): Triangle() {
 
-    override fun getPicture(): String {
-        return "This is a picture of a Scalene Triangle"
+    override fun getPictureId(): Int {
+        return R.drawable.scalene_triangle
     }
 
-    override fun getName(): String {
-        return "Scalene Triangle"
+    override fun getDescription(): String {
+        return R.string.scalene_triangle_description.toString()
     }
 }
