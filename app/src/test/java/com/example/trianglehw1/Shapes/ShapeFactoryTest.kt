@@ -4,11 +4,8 @@ import com.example.trianglehw1.Shapes.Triangles.EquilateralTriangle
 import com.example.trianglehw1.Shapes.Triangles.IsoscelesTriangle
 import com.example.trianglehw1.Shapes.Triangles.ScaleneTriangle
 import com.example.trianglehw1.Result
-import com.example.trianglehw1.Shapes.Triangles.NullTriangle
 import junit.framework.Assert.*
-import org.junit.Assert
 import org.junit.Test
-import java.lang.Error
 
 internal class ShapeFactoryTest{
 
@@ -67,7 +64,7 @@ internal class ShapeFactoryTest{
 
         //Assert
         if(sut is Result.Error)
-            assertTrue(sut.error is NullTriangle)
+            assertTrue(sut.error is Shape.Null)
         else
             fail()
     }
@@ -81,7 +78,7 @@ internal class ShapeFactoryTest{
         //Assert
         assertTrue(sut is Result.Error)
         if (sut is Result.Error)
-            assertTrue(sut.error is NullTriangle)
+            assertTrue(sut.error is Shape.Null)
         else
             fail()
     }
@@ -93,7 +90,7 @@ internal class ShapeFactoryTest{
         )
 
         if(sut is Result.Error)
-            assertTrue(sut.error is NullTriangle)
+            assertTrue(sut.error is Shape.Null)
         else
             fail()
     }
