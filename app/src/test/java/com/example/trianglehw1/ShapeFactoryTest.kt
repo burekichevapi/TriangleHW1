@@ -1,5 +1,8 @@
 package com.example.trianglehw1.Shapes
 
+import com.example.trianglehw1.Shapes.Triangles.EquilateralTriangle
+import com.example.trianglehw1.Shapes.Triangles.IsoscelesTriangle
+import com.example.trianglehw1.Shapes.Triangles.ScaleneTriangle
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
 
@@ -7,52 +10,47 @@ internal class ShapeFactoryTest{
 
     @Test
     fun `Equilateral Triangle`(){
-        var results = ShapeFactory.create(
+        var equilateralTriangle = ShapeFactory.create(
             sides = arrayOf(1.0, 1.0, 1.0)
         )
 
-        var totalResults = results.getName()
-        assertEquals("Equilateral Triangle", totalResults)
+        assertEquals(equilateralTriangle::class, EquilateralTriangle()::class)
     }
 
     @Test
     fun `Scalene triangle1`(){
-        var results = ShapeFactory.create(
+        var scaleneTriangle = ShapeFactory.create(
             sides = arrayOf(1.0,2.0,3.0)
         )
 
-        var totalResults = results.getName()
-        assertEquals("Scalene Triangle", totalResults)
+        assertEquals(scaleneTriangle::class, ScaleneTriangle()::class)
     }
 
     @Test
     fun `Isosceles Triangle`(){
-        var results = ShapeFactory.create(
+        var isoscelesTriangle = ShapeFactory.create(
             sides = arrayOf(1.0, 1.0, 2.0)
         )
 
-        var totalResult = results.getName()
-        assertEquals("Isosceles Triangle", totalResult)
+        assertEquals(isoscelesTriangle::class, IsoscelesTriangle()::class)
     }
 
     @Test
     fun `Minimum Number of Inputs haven't been Added`(){
-        var results = ShapeFactory.create(
+        var minimumInputs = ShapeFactory.create(
             sides = arrayOf(1.0, 2.0)
         )
 
-        var totalResult = results.getName()
-        assertEquals("null", totalResult)
+        assertEquals(minimumInputs::class, Shape.Null::class)
     }
 
     @Test
     fun `Maximum Number of Inputs was Exceeded`(){
-        var results = ShapeFactory.create(
+        var maximumInputs = ShapeFactory.create(
             sides = arrayOf(1.0, 2.0, 3.0, 4.0)
         )
 
-        var totalResult = results.getName()
-        assertEquals("null", totalResult)
+        assertEquals(maximumInputs::class, Shape.Null::class)
     }
 
     @Test
