@@ -10,4 +10,5 @@
     <string name="equilateral_triangle_description">A triangle where all three sides are equal length.</string>
     <string name="isosceles_triangle_description">A triangle where only two sides are of equal length.</string>
     <string name="scalene_triangle_description">A triangle where all sides are of a different length.</string>
+    <string name="Null_triangle_description">Invalid Triangle!</string>
 </resources>
