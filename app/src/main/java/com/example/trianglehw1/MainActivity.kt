@@ -32,62 +32,48 @@ class MainActivity : AppCompatActivity() {
 
     fun determineTriangle(view: View) {
 
-        val sSideA: String = triangle_fragment.edtTriangleSideA.text.toString()
-        if (sSideA.isNullOrBlank()) {
-            sendAlert(0)
-            return
-        }
-        val dSideA: Double = sSideA.toDouble()
-        if (dSideA <= 0 || dSideA > 100) {
-            sendAlert(1)
-            return
+        var i:Int = 0
+
+        val sSides = arrayOf<String>(triangle_fragment.edtTriangleSideA.text.toString(),
+            triangle_fragment.edtTriangleSideB.text.toString(),
+            triangle_fragment.edtTriangleSideC.text.toString())
+
+        var dSides = arrayOf<Double>(0.0, 0.0, 0.0)
+
+        for (s: String in sSides) {
+
+            if (s.isNullOrBlank()) {
+                sendAlert(0)
+                return
+            }
+            dSides.set(i, s.toDouble())
+            if (dSides.get(i) <= 0 || dSides.get(i) > 100) {
+                sendAlert(1)
+                return
+            }
+            i++
         }
 
-        val sSideB: String = triangle_fragment.edtTriangleSideB.text.toString()
-        if (sSideB.isNullOrBlank()) {
-            sendAlert(0)
-            return
-        }
-        val dSideB: Double = sSideB.toDouble()
-        if (dSideB <= 0 || dSideB > 100) {
-            sendAlert(1)
-            return
-        }
-
-        val sSideC: String = triangle_fragment.edtTriangleSideC.text.toString()
-        if (sSideC.isNullOrBlank()) {
-            sendAlert(0)
-            return
-        }
-        val dSideC: Double = sSideC.toDouble()
-        if (dSideC <= 0 || dSideC > 100) {
-            sendAlert(1)
-            return
-        }
-
-        val tri = ShapeFactory.create(arrayOf(dSideA, dSideB, dSideC))
-        if (tri is Result.Ok ) {
-            val iImageID = tri.value.getPictureId()
+        val tri = ShapeFactory.create(dSides)
+            val iImageID = tri.getPictureId()
             triangleFragment.ctrTriangleImage.setImageResource(iImageID)
-        }
-
     }
 
     fun clearTriangle(view: View?) {
         triangle_fragment.edtTriangleSideA.text.clear()
         triangle_fragment.edtTriangleSideB.text.clear()
         triangle_fragment.edtTriangleSideC.text.clear()
-
-        triangleFragment.ctrTriangleImage.setImageResource(R.drawable.null_triangle)
+        triangle_fragment.lblTriangleError.setText(R.string.clear_text)
+        triangleFragment.ctrTriangleImage.setImageResource(R.drawable.null_shape)
 
     }
 
     fun sendAlert(int: Int) {
 
-        clearTriangle(null)
-
-        //  TODO: if int == 0 then present null alert message
-        //  TODO: if int == 1 then present value must be >0 and <100 message
+    //    clearTriangle(null)
+        triangleFragment.ctrTriangleImage.setImageResource(R.drawable.invalid_triangle)
+        if (int>0) triangle_fragment.lblTriangleError.setText(R.string.invalid_triangle_description)
+        else triangle_fragment.lblTriangleError.setText(R.string.null_triangle_description)
 
     }
 

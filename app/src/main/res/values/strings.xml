@@ -13,4 +13,5 @@
     <string name="scalene_triangle_description">A triangle where all sides are of a different length.</string>
     <string name="null_triangle_description"></string>
     <string name="invalid_triangle_description">Invalid Triangle! All sides must be >= 1.0 and the sum of its two sides must be greater than the third side.</string>
+    <string name="clear_text"></string>
 </resources>
