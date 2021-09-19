@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun clearTriangle(view: View) {
+    fun clearTriangle(view: View?) {
         triangle_fragment.edtTriangleSideA.text.clear()
         triangle_fragment.edtTriangleSideB.text.clear()
         triangle_fragment.edtTriangleSideC.text.clear()
@@ -83,6 +83,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendAlert(int: Int) {
+
+        clearTriangle(null)
+
         //  TODO: if int == 0 then present null alert message
         //  TODO: if int == 1 then present value must be >0 and <100 message
 
@@ -112,8 +115,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resetScreen() {
-
-        //  TODO: insert call to current fragment to reset data to defaults
+        clearTriangle(null)
     }
 }
 
