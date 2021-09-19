@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity() {
 
     fun sendAlert(int: Int) {
 
-    //    clearTriangle(null)
         triangleFragment.ctrTriangleImage.setImageResource(R.drawable.invalid_triangle)
         if (int>0) triangle_fragment.lblTriangleError.setText(R.string.invalid_triangle_description)
         else triangle_fragment.lblTriangleError.setText(R.string.null_triangle_description)
