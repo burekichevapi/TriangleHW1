@@ -1,26 +1,16 @@
 package com.example.trianglehw1
 
-import android.graphics.drawable.shapes.Shape
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.trianglehw1.Shapes.Shape
 import com.example.trianglehw1.Shapes.ShapeFactory
 import com.example.trianglehw1.fragments.donate_fragment
 import com.example.trianglehw1.fragments.startup_fragment
 import com.example.trianglehw1.fragments.triangle_fragment
 import kotlinx.android.synthetic.main.activity_main.*
-import com.example.trianglehw1.Shapes.ShapeFactory
-import com.example.trianglehw1.Shapes.Triangles.Triangle
-import kotlinx.android.synthetic.main.fragment_donate_container.*
 import kotlinx.android.synthetic.main.fragment_triangle_container.*
 import kotlinx.android.synthetic.main.fragment_triangle_container.view.*
-import kotlinx.coroutines.suspendAtomicCancellableCoroutine
-import javax.xml.transform.OutputKeys
-
 
 class MainActivity : AppCompatActivity() {
 
