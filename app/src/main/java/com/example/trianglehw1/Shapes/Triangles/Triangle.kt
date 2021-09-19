@@ -1,19 +1,25 @@
 package com.example.trianglehw1.Shapes.Triangles
 
 import com.example.trianglehw1.Shapes.Shape
-
+import com.example.trianglehw1.Result
 abstract class Triangle(): Shape() {
     companion object Factory {
-        fun create(sides: Array<Double>): Triangle {
+        fun create(sides: Array<Double>): Result<Triangle, Shape> {
             val differentSides = sides.toSet().count()
-
+            if (!isvalidTriangle(sides))
+                return Result.Error(Shape.Null)
             if(differentSides == 1)
-                return EquilateralTriangle()
+                return Result.Ok(EquilateralTriangle())
 
             if(differentSides == 2)
-                return IsoscelesTriangle()
+                return Result.Ok(IsoscelesTriangle())
 
-            return ScaleneTriangle()
+            return Result.Ok(ScaleneTriangle())
+        }
+
+        private fun isvalidTriangle(differentSides: Array<Double>): Boolean {
+            //Todo: add validations
+            return true
         }
     }
 }
