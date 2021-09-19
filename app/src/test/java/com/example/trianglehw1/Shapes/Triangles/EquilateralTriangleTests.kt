@@ -20,9 +20,9 @@ internal class EquilateralTriangleTests {
     @Test
     fun `Should Get Equilateral Triangle Name When Called`() {
 
-        val name = equilateralTriangle.getDescription()
+        val description = equilateralTriangle.getDescriptionId()
 
-        assertEquals(name, R.string.equilateral_triangle_description.toString())
+        assertEquals(description, R.string.equilateral_triangle_description)
     }
 
 }

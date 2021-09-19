@@ -18,8 +18,8 @@ internal class IsoscelesTriangleTests {
     @Test
     fun `Should Get Isosceles Triangle Name When Called`() {
 
-        val name = isoscelesTriangle.getDescription()
+        val description = isoscelesTriangle.getDescriptionId()
 
-        assertEquals(name, R.string.isosceles_triangle_description.toString())
+        assertEquals(description, R.string.isosceles_triangle_description)
     }
 }

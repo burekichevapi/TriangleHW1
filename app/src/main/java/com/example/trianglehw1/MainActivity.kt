@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.example.trianglehw1.Shapes.Shape
 import com.example.trianglehw1.Shapes.ShapeFactory
 import com.example.trianglehw1.fragments.donate_fragment
 import com.example.trianglehw1.fragments.startup_fragment
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
             if (s.isNullOrBlank()) {
                 sendAlert(0)
+                triangleFragment.ctrTriangleImage.setImageResource(Shape.Null.getPictureId())
                 return
             }
             dSides.set(i, s.toDouble())
@@ -55,8 +57,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         val tri = ShapeFactory.create(dSides)
-            val iImageID = tri.getPictureId()
-            triangleFragment.ctrTriangleImage.setImageResource(iImageID)
+        val iImageID = tri.getPictureId()
+        val descriptionId = tri.getDescriptionId()
+        triangleFragment.ctrTriangleImage.setImageResource(iImageID)
+        triangleFragment.lblTriangleError.text = resources.getString(descriptionId)
     }
 
     fun clearTriangle(view: View?) {
@@ -64,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         triangle_fragment.edtTriangleSideB.text.clear()
         triangle_fragment.edtTriangleSideC.text.clear()
         triangle_fragment.lblTriangleError.setText(R.string.clear_text)
-        triangleFragment.ctrTriangleImage.setImageResource(R.drawable.null_shape)
+        triangleFragment.ctrTriangleImage.setImageResource(Shape.Null.getPictureId())
 
     }
 

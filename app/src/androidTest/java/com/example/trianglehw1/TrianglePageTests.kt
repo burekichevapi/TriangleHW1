@@ -1,5 +1,4 @@
 package com.example.trianglehw1
-import android.media.Image
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
@@ -14,7 +13,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import kotlin.math.sign
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -158,7 +156,7 @@ class TrianglePageTests {
 
         btnClearResults.perform(click())
 
-        btnDisplayTriangle.check(matches(withImageDrawable(R.drawable.null_shape)))
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.null_shape)))
     }
 
     @Test
@@ -224,26 +222,36 @@ class TrianglePageTests {
     }
 
     @Test
-    fun ctrTriangleImage_WillShowPictureOfInvalidShape_WhenSubmittedAndOnly1ValueIsEntered() {
+    fun ctrTriangleImage_WillShowPictureOfNullShape_WhenSubmittedAndOnly1ValueIsEntered() {
         edtTriangleSideA.perform(clearText(), typeText("1.1"))
         edtTriangleSideB.perform(clearText())
         edtTriangleSideC.perform(clearText())
 
         btnDisplayTriangle.perform(click())
 
-        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.null_shape)))
     }
 
     @Test
-    fun ctrTriangleImage_WillShowPictureOfInvalidShape_WhenSubmittedAndOnly2ValuesAreEntered() {
+    fun ctrTriangleImage_WillShowPictureOfNullShape_WhenSubmittedAndOnly2ValuesAreEntered() {
         edtTriangleSideA.perform(clearText(), typeText("1.1"))
         edtTriangleSideB.perform(clearText(), typeText("1.0"))
         edtTriangleSideC.perform(clearText())
 
         btnDisplayTriangle.perform(click())
 
-        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.null_shape)))
     }
 
+    @Test
+    fun ctrTriangleImage_WillShowPictureOfInvalidShape_WhenSubmittedAndViolatingInequalityTheorem() {
+        edtTriangleSideA.perform(clearText(), typeText("1.1"))
+        edtTriangleSideB.perform(clearText(), typeText("1.1"))
+        edtTriangleSideC.perform(clearText(), typeText("81.0"))
+
+        btnDisplayTriangle.perform(click())
+
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_triangle)))
+    }
 
 }

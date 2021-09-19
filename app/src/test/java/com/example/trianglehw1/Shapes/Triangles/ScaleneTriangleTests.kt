@@ -18,8 +18,8 @@ internal class ScaleneTriangleTests {
     @Test
     fun `Should Get Scalene Triangle Name When Called`() {
 
-        val name = scaleneTriangle.getDescription()
+        val description = scaleneTriangle.getDescriptionId()
 
-        assertEquals(name, R.string.scalene_triangle_description.toString())
+        assertEquals(description, R.string.scalene_triangle_description)
     }
 }

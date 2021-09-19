@@ -3,7 +3,6 @@ package com.example.trianglehw1.Shapes
 import com.example.trianglehw1.Shapes.Triangles.EquilateralTriangle
 import com.example.trianglehw1.Shapes.Triangles.IsoscelesTriangle
 import com.example.trianglehw1.Shapes.Triangles.ScaleneTriangle
-import com.example.trianglehw1.Result
 import com.example.trianglehw1.Shapes.Triangles.InvalidTriangle
 import junit.framework.Assert.*
 import org.junit.Test

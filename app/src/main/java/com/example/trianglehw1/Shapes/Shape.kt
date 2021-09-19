@@ -6,9 +6,9 @@ abstract class Shape {
 
     companion object Null: Shape() {
         override fun getPictureId(): Int = R.drawable.null_shape
-        override fun getDescription(): String = ""
+        override fun getDescriptionId(): Int = R.string.clear_text
     }
 
     abstract fun getPictureId(): Int
-    abstract fun getDescription(): String
+    abstract fun getDescriptionId(): Int
 }

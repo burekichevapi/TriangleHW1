@@ -7,8 +7,8 @@ open class InvalidShape: Shape() {
         return R.drawable.invalid_shape
     }
 
-    override fun getDescription(): String {
-        return R.string.invalid_shape_description.toString()
+    override fun getDescriptionId(): Int {
+        return R.string.invalid_shape_description
     }
 
 }

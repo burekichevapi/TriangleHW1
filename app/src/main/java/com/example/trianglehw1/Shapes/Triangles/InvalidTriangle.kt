@@ -8,7 +8,7 @@ class InvalidTriangle: Triangle() {
         return R.drawable.invalid_triangle
     }
 
-    override fun getDescription(): String {
-        return R.string.invalid_triangle_description.toString()
+    override fun getDescriptionId(): Int {
+        return R.string.invalid_triangle_description
     }
 }

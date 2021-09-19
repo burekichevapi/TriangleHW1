@@ -8,7 +8,7 @@ class EquilateralTriangle(): Triangle() {
         return R.drawable.equilateral_triangle;
     }
 
-    override fun getDescription(): String {
-        return R.string.equilateral_triangle_description.toString()
+    override fun getDescriptionId(): Int {
+        return R.string.equilateral_triangle_description
     }
 }

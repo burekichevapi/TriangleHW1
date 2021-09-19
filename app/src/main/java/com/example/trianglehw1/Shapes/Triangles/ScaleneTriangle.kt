@@ -8,7 +8,7 @@ class ScaleneTriangle(): Triangle() {
         return R.drawable.scalene_triangle
     }
 
-    override fun getDescription(): String {
-        return R.string.scalene_triangle_description.toString()
+    override fun getDescriptionId(): Int {
+        return R.string.scalene_triangle_description
     }
 }

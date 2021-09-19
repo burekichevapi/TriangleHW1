@@ -1,8 +1,6 @@
 package com.example.trianglehw1.Shapes.Triangles
 
 import com.example.trianglehw1.Shapes.Shape
-import com.example.trianglehw1.Result
-import com.example.trianglehw1.Shapes.ShapeType
 
 abstract class Triangle(): Shape() {
     companion object Factory {

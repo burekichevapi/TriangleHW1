@@ -8,7 +8,7 @@ class IsoscelesTriangle(): Triangle() {
         return R.drawable.isosceles_triangle
     }
 
-    override fun getDescription(): String {
-        return R.string.isosceles_triangle_description.toString()
+    override fun getDescriptionId(): Int {
+        return R.string.isosceles_triangle_description
     }
 }
