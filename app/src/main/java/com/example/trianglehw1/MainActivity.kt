@@ -7,6 +7,8 @@ import android.text.Editable
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.trianglehw1.Shapes.Shape
+import com.example.trianglehw1.Shapes.ShapeFactory
 import com.example.trianglehw1.fragments.donate_fragment
 import com.example.trianglehw1.fragments.startup_fragment
 import com.example.trianglehw1.fragments.triangle_fragment
