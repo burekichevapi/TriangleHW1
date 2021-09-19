@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_donate_container.*
 import kotlinx.android.synthetic.main.fragment_triangle_container.*
 import kotlinx.android.synthetic.main.fragment_triangle_container.view.*
 import kotlinx.coroutines.suspendAtomicCancellableCoroutine
+import javax.xml.transform.OutputKeys
 
 
 class MainActivity : AppCompatActivity() {
@@ -73,10 +74,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         val tri = ShapeFactory.create(arrayOf(dSideA, dSideB, dSideC))
-
-        val iImageID = tri.getPictureId()
-
-        triangleFragment.ctrTriangleImage.setImageResource(iImageID)
+        if (tri is Result.Ok ) {
+            val iImageID = tri.value.getPictureId()
+            triangleFragment.ctrTriangleImage.setImageResource(iImageID)
+        }
 
     }
 
