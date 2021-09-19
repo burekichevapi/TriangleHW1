@@ -4,10 +4,10 @@ import com.example.trianglehw1.Shapes.Shape
 import com.example.trianglehw1.Result
 abstract class Triangle(): Shape() {
     companion object Factory {
-        fun create(sides: Array<Double>): Result<Triangle, Triangle> {
+        fun create(sides: Array<Double>): Result<Triangle, Shape> {
             val differentSides = sides.toSet().count()
             if (!isvalidTriangle(sides))
-                return Result.Error(NullTriangle())
+                return Result.Error(Shape.Null)
             if(differentSides == 1)
                 return Result.Ok(EquilateralTriangle())
 
