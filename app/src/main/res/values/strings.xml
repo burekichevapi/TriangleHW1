@@ -11,6 +11,7 @@
     <string name="equilateral_triangle_description">A triangle where all three sides are equal length.</string>
     <string name="isosceles_triangle_description">A triangle where only two sides are of equal length.</string>
     <string name="scalene_triangle_description">A triangle where all sides are of a different length.</string>
-    <string name="invalid_triangle_description">Invalid Triangle! All sides must be >= 1.0 and the sum of its two sides must be greater than the third side.</string>
+    <string name="invalid_triangle_description">Invalid Triangle! All sides must be >= 0.1 and the sum of its two sides must be greater than the third side.</string>
+    <string name="null_triangle_description">Invalid Triangle! Please enter a value greater than 0 and less than 100 for each side</string>
     <string name="clear_text"></string>
 </resources>
