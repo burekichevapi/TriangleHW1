@@ -7,8 +7,10 @@
     <string name="title_triangle_page">Triangle Page</string>
     <string name="title_startup_page">Startup Page</string>
     <string name="title_donate_page">Donate Page</string>
+    <string name="invalid_shape_description">All side values must be positive.</string>
     <string name="equilateral_triangle_description">A triangle where all three sides are equal length.</string>
     <string name="isosceles_triangle_description">A triangle where only two sides are of equal length.</string>
     <string name="scalene_triangle_description">A triangle where all sides are of a different length.</string>
-    <string name="Null_triangle_description">Invalid Triangle!</string>
+    <string name="null_triangle_description"></string>
+    <string name="invalid_triangle_description">Invalid Triangle! All sides must be >= 1.0 and the sum of its two sides must be greater than the third side.</string>
 </resources>

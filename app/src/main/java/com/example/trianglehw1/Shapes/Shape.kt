@@ -1,14 +1,12 @@
 package com.example.trianglehw1.Shapes
 
-enum class ShapeType(val numberOfSides: Int) {
-    TRIANGLE(3);
-}
+import com.example.trianglehw1.R
 
 abstract class Shape {
 
     companion object Null: Shape() {
-        override fun getPictureId(): Int = -1
-        override fun getDescription(): String = "null"
+        override fun getPictureId(): Int = R.drawable.null_shape
+        override fun getDescription(): String = ""
     }
 
     abstract fun getPictureId(): Int
