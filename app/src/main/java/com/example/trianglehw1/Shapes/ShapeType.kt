@@ -7,7 +7,7 @@ enum class ShapeType() {
         return numberOfSides == 3
     }
 
-    fun invalidWithNegativeSides(sides: Array<Double>): Boolean {
+    fun INVALID_WITH_NEGATIVE_SIDES(sides: Array<Double>): Boolean {
         sides.forEach {
             if(it <= 0.0)
                 return true

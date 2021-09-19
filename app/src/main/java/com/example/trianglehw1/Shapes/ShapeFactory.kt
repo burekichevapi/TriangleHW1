@@ -5,7 +5,7 @@ import com.example.trianglehw1.Shapes.Triangles.Triangle
 object ShapeFactory {
     fun create(sides: Array<Double>): Shape {
 
-        if(ShapeType.IS.invalidWithNegativeSides(sides))
+        if(ShapeType.IS.INVALID_WITH_NEGATIVE_SIDES(sides))
             return InvalidShape()
 
         if(ShapeType.IS.TRIANGLE(sides.count()))
