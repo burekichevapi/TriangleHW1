@@ -151,12 +151,12 @@ class TrianglePageTests {
     }
 
     @Test
-    fun btnClearResults_WillMakebtnDisplayTriangleDisplayNullShape() {
+    fun btnClearResults_WillMakebtnDisplayTriangleDisplayInvalidShape() {
         edtTriangleSideB.perform(clearText(), typeText("1.1"))
 
         btnClearResults.perform(click())
 
-        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.null_shape)))
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
     }
 
     @Test
@@ -211,36 +211,36 @@ class TrianglePageTests {
     }
 
     @Test
-    fun ctrTriangleImage_WillShowPictureOfNullShape_WhenSubmittedAndNoValuesAreEntered() {
+    fun ctrTriangleImage_WillShowPictureOfInvalidShape_WhenSubmittedAndNoValuesAreEntered() {
         edtTriangleSideA.perform(clearText())
         edtTriangleSideB.perform(clearText())
         edtTriangleSideC.perform(clearText())
 
         btnDisplayTriangle.perform(click())
 
-        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.null_shape)))
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
     }
 
     @Test
-    fun ctrTriangleImage_WillShowPictureOfNullShape_WhenSubmittedAndOnly1ValueIsEntered() {
+    fun ctrTriangleImage_WillShowPictureOfInvalidShape_WhenSubmittedAndOnly1ValueIsEntered() {
         edtTriangleSideA.perform(clearText(), typeText("1.1"))
         edtTriangleSideB.perform(clearText())
         edtTriangleSideC.perform(clearText())
 
         btnDisplayTriangle.perform(click())
 
-        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.null_shape)))
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
     }
 
     @Test
-    fun ctrTriangleImage_WillShowPictureOfNullShape_WhenSubmittedAndOnly2ValuesAreEntered() {
+    fun ctrTriangleImage_WillShowPictureOfInvalidShape_WhenSubmittedAndOnly2ValuesAreEntered() {
         edtTriangleSideA.perform(clearText(), typeText("1.1"))
         edtTriangleSideB.perform(clearText(), typeText("1.0"))
         edtTriangleSideC.perform(clearText())
 
         btnDisplayTriangle.perform(click())
 
-        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.null_shape)))
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
     }
 
     @Test

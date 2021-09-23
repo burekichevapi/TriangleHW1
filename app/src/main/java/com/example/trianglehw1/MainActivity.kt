@@ -33,42 +33,36 @@ class MainActivity : AppCompatActivity() {
 
     fun determineTriangle(view: View) {
 
-        var i:Int = 0
-
-        val sSides = arrayOf<String>(triangle_fragment.edtTriangleSideA.text.toString(),
+        val inputs = arrayOf<String>(
+            triangle_fragment.edtTriangleSideA.text.toString(),
             triangle_fragment.edtTriangleSideB.text.toString(),
             triangle_fragment.edtTriangleSideC.text.toString())
 
-        var dSides = arrayOf<Double>(0.0, 0.0, 0.0)
+        val sides = getSides(inputs)
 
-        for (s: String in sSides) {
-
-            if (s.isNullOrBlank()) {
-                sendAlert(0)
-                triangleFragment.ctrTriangleImage.setImageResource(Shape.Null.getPictureId())
-                return
-            }
-            dSides.set(i, s.toDouble())
-            if (dSides.get(i) <= 0 || dSides.get(i) > 100) {
-                sendAlert(1)
-                return
-            }
-            i++
-        }
-
-        val tri = ShapeFactory.create(dSides)
-        val iImageID = tri.getPictureId()
-        val descriptionId = tri.getDescriptionId()
-        triangleFragment.ctrTriangleImage.setImageResource(iImageID)
-        triangleFragment.lblTriangleError.text = resources.getString(descriptionId)
+        val shape = ShapeFactory.create(sides)
+        triangleFragment.ctrTriangleImage.setImageResource(shape.getPictureId())
+        triangleFragment.lblTriangleError.text = resources.getString(shape.getDescriptionId())
     }
 
+    fun getSides(inputs: Array<String>) :Array<Double> {
+        val sides: ArrayList<Double> = arrayListOf()
+        inputs.forEach {
+            if (!it.isNullOrEmpty()) {
+                val side = it.toDouble()
+                if (side <= 100.0)
+                    sides.add(side)
+            }
+        }
+        return sides.toDoubleArray().toTypedArray()
+
+    }
     fun clearTriangle(view: View?) {
         triangle_fragment.edtTriangleSideA.text.clear()
         triangle_fragment.edtTriangleSideB.text.clear()
         triangle_fragment.edtTriangleSideC.text.clear()
         triangle_fragment.lblTriangleError.setText(R.string.clear_text)
-        triangleFragment.ctrTriangleImage.setImageResource(Shape.Null.getPictureId())
+        triangleFragment.ctrTriangleImage.setImageResource(Shape.Invalid.getPictureId())
 
     }
 

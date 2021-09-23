@@ -44,7 +44,7 @@ internal class ShapeFactoryTest{
             sides = arrayOf(1.0, 2.0)
         )
 
-        assertTrue(sut is Shape.Null)
+        assertTrue(sut is Shape.Invalid)
     }
 
     @Test
@@ -53,7 +53,7 @@ internal class ShapeFactoryTest{
             sides = arrayOf(1.0, 2.0, 3.0, 4.0)
         )
 
-        assertTrue(sut is Shape.Null)
+        assertTrue(sut is Shape.Invalid)
     }
 
     @Test
@@ -62,7 +62,7 @@ internal class ShapeFactoryTest{
             sides = arrayOf(0.0, -1.0, -2.0)
         )
 
-        assertTrue(sut is InvalidShape)
+        assertTrue(sut is Shape.Invalid)
     }
 
     @Test

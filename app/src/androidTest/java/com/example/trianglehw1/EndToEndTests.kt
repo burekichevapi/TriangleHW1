@@ -91,7 +91,6 @@ class EndToEndTests {
         val textView = onView(
             allOf(
                 withId(R.id.lblTriangleError),
-                //withText("A triangle where all three sides are equal length."),
                 withParent(
                     allOf(
                         withId(R.id.triangle_fragment),

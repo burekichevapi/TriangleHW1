@@ -6,12 +6,12 @@ object ShapeFactory {
     fun create(sides: Array<Double>): Shape {
 
         if(ShapeType.IS.INVALID_WITH_NEGATIVE_SIDES(sides))
-            return InvalidShape()
+            return Shape.Invalid
 
         if(ShapeType.IS.TRIANGLE(sides.count()))
             return Triangle.Factory.create(sides)
 
-        return Shape.Null
+        return  Shape.Invalid
     }
 
 }
