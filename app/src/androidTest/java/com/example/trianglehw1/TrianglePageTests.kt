@@ -254,4 +254,15 @@ class TrianglePageTests {
         ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_triangle)))
     }
 
+    @Test
+    fun ctrTriangleImage_WillShowPictureOfInvalidShape_WhenSubmittedAndSideIsOver100() {
+        edtTriangleSideA.perform(clearText(), typeText("1.1"))
+        edtTriangleSideB.perform(clearText(), typeText("1.1"))
+        edtTriangleSideC.perform(clearText(), typeText("101.0"))
+
+        btnDisplayTriangle.perform(click())
+
+        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
+    }
+
 }
