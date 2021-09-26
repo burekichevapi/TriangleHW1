@@ -1,17 +1,31 @@
 package com.example.trianglehw1.Shapes
 
-import com.example.trianglehw1.Shapes.Triangles.Triangle
+import com.example.trianglehw1.Shapes.Triangles.TriangleFactory
 
-object ShapeFactory {
-    fun create(sides: Array<Double>): Shape {
+class ShapeFactory(sides: Array<Double>) {
+    private lateinit var _factory: IShapeFactory
+    private val _sides = sides
 
-        if(ShapeType.IS.INVALID_WITH_NEGATIVE_SIDES(sides))
-            return Shape.Invalid
+    fun create(): Shape {
+        if(isInvalidShape())
+            return InvalidShape()
 
-        if(ShapeType.IS.TRIANGLE(sides.count()))
-            return Triangle.Factory.create(sides)
+        if(ShapeType.IS.TRIANGLE(_sides))
+            _factory = TriangleFactory(_sides)
+        else
+            return InvalidShape()
 
-        return  Shape.Invalid
+        return  _factory.create()
+    }
+
+    private fun isInvalidShape(): Boolean {
+        if(ShapeType.IS.INVALID_WITH_NEGATIVE_SIDES(_sides))
+            return true
+
+        if(ShapeType.IS.INVALID_WITH_LESS_THAN_3_SIDES(_sides))
+            return true
+
+        return false
     }
 
 }

@@ -7,13 +7,11 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.test.espresso.matcher.BoundedMatcher;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 
 public class CustomMatchers {
     public static Matcher<View> withImageDrawable(final int resourceId) {
@@ -25,16 +23,12 @@ public class CustomMatchers {
 
             @Override
             public boolean matchesSafely(ImageView imageView) {
-                return sameBitmap(imageView.getContext(), imageView.getDrawable(), resourceId);
+                return CustomMatchers.matches(imageView.getContext(), imageView.getDrawable(), resourceId);
             }
         };
     }
 
-    private static int getDrawableId(ImageView iv) {
-        return (Integer) iv.getTag();
-    }
-
-    private static boolean sameBitmap(Context context, Drawable drawable, int resourceId) {
+    private static boolean matches(Context context, Drawable drawable, int resourceId) {
         Drawable otherDrawable = context.getResources().getDrawable(resourceId);
         if (drawable == null || otherDrawable == null) {
             return false;

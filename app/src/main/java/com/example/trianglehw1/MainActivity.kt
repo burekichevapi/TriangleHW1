@@ -34,8 +34,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         val sides = getValidSides(inputs)
+        val factory = ShapeFactory(sides)
+        val shape = factory.create()
 
-        val shape = ShapeFactory.create(sides)
         triangleFragment.ctrTriangleImage.setImageResource(shape.getPictureId())
         triangleFragment.lblTriangleError.text = resources.getString(shape.getDescriptionId())
     }
