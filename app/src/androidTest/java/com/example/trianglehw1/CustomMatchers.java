@@ -16,21 +16,6 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 public class CustomMatchers {
-    public static Matcher<View> withBackground(final int resourceId) {
-        return new TypeSafeMatcher<View>() {
-
-            @Override
-            public boolean matchesSafely(View view) {
-                return sameBitmap(view.getContext(), view.getBackground(), resourceId);
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("has background resource " + resourceId);
-            }
-        };
-    }
-
     public static Matcher<View> withImageDrawable(final int resourceId) {
         return new BoundedMatcher<View, ImageView>(ImageView.class) {
             @Override
@@ -43,6 +28,10 @@ public class CustomMatchers {
                 return sameBitmap(imageView.getContext(), imageView.getDrawable(), resourceId);
             }
         };
+    }
+
+    private static int getDrawableId(ImageView iv) {
+        return (Integer) iv.getTag();
     }
 
     private static boolean sameBitmap(Context context, Drawable drawable, int resourceId) {

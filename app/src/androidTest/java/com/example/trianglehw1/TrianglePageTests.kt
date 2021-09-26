@@ -1,4 +1,5 @@
 package com.example.trianglehw1
+import android.widget.ImageView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
@@ -142,6 +143,19 @@ class TrianglePageTests {
     }
 
     @Test
+    fun btnClearResults_WillMakebtnDisplayTriangleDisplayNoPicture() {
+        edtTriangleSideA.perform(clearText())
+        edtTriangleSideB.perform(clearText())
+        edtTriangleSideC.perform(clearText())
+
+        btnClearResults.perform(click())
+
+        val image = mainActivityRule.activity.findViewById<ImageView>(R.id.ctrTriangleImage).drawable
+
+        assert(image == null)
+    }
+
+    @Test
     fun btnClearResults_WillMakeEdtTriangleSideBEmpty() {
         edtTriangleSideB.perform(clearText(), typeText("1.1"))
 
@@ -156,7 +170,9 @@ class TrianglePageTests {
 
         btnClearResults.perform(click())
 
-        ctrTriangleImage.check(matches(withImageDrawable(R.drawable.invalid_shape)))
+        val image = mainActivityRule.activity.findViewById<ImageView>(R.id.ctrTriangleImage).drawable
+
+        assert(image == null)
     }
 
     @Test

@@ -3,6 +3,7 @@ package com.example.trianglehw1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import com.example.trianglehw1.Shapes.Shape
 import com.example.trianglehw1.Shapes.ShapeFactory
@@ -23,29 +24,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setFragment(startupFragment)
         setNavigationBarRoutes()
-    }
-
-    fun navigateToTriangleFragment(view: View) {
-        setFragment(triangleFragment)
+        setFragment(startupFragment)
     }
 
     fun determineTriangle(view: View) {
 
-        val inputs = arrayOf<String>(
-            triangle_fragment.edtTriangleSideA.text.toString(),
-            triangle_fragment.edtTriangleSideB.text.toString(),
-            triangle_fragment.edtTriangleSideC.text.toString())
+        val inputs = arrayOf(
+            triangleFragment.edtTriangleSideA.text.toString(),
+            triangleFragment.edtTriangleSideB.text.toString(),
+            triangleFragment.edtTriangleSideC.text.toString()
+        )
 
-        val sides = getSides(inputs)
+        val sides = getValidSides(inputs)
 
         val shape = ShapeFactory.create(sides)
         triangleFragment.ctrTriangleImage.setImageResource(shape.getPictureId())
         triangleFragment.lblTriangleError.text = resources.getString(shape.getDescriptionId())
     }
 
-    fun getSides(inputs: Array<String>) :Array<Double> {
+    fun navigateToTriangleFragment(view: View) {
+        setFragment(triangleFragment)
+    }
+
+    private fun getValidSides(inputs: Array<String>) :Array<Double> {
         val sides: ArrayList<Double> = arrayListOf()
         inputs.forEach {
             if (!it.isNullOrEmpty()) {
@@ -54,23 +56,19 @@ class MainActivity : AppCompatActivity() {
                     sides.add(side)
             }
         }
+
         return sides.toDoubleArray().toTypedArray()
-
-    }
-    fun clearTriangle(view: View?) {
-        triangle_fragment.edtTriangleSideA.text.clear()
-        triangle_fragment.edtTriangleSideB.text.clear()
-        triangle_fragment.edtTriangleSideC.text.clear()
-        triangle_fragment.lblTriangleError.setText(R.string.clear_text)
-        triangleFragment.ctrTriangleImage.setImageResource(Shape.Invalid.getPictureId())
-
     }
 
-    fun sendAlert(int: Int) {
+    fun clearTriangle(view: View) {
+        if(triangleFragment.edtTriangleSideA == null)
+            return
 
-        triangleFragment.ctrTriangleImage.setImageResource(R.drawable.invalid_triangle)
-        if (int>0) triangle_fragment.lblTriangleError.setText(R.string.invalid_triangle_description)
-        else triangle_fragment.lblTriangleError.setText(R.string.null_triangle_description)
+        triangleFragment.edtTriangleSideA.text.clear()
+        triangleFragment.edtTriangleSideB.text.clear()
+        triangleFragment.edtTriangleSideC.text.clear()
+        triangleFragment.lblTriangleError.setText(R.string.clear_text)
+        triangleFragment.ctrTriangleImage.setImageResource(0)
 
     }
 
@@ -80,14 +78,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.ic_startup_nav_button -> setFragment(startupFragment)
                 R.id.ic_triangle_nav_button -> setFragment(triangleFragment)
                 R.id.ic_donate_nav_button -> setFragment(donateFragment)
-                R.id.ic_reset_screen_button -> resetScreen()
+                R.id.ic_reset_screen_button -> clearTriangle(this.view_Main)
             }
             true
         }
     }
 
     private fun setFragment(fragment: Fragment) {
-
         val transaction = supportFragmentManager.beginTransaction()
 
         transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
@@ -95,10 +92,6 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.fragment_container,  fragment)
         transaction.commit()
 
-    }
-
-    private fun resetScreen() {
-        clearTriangle(null)
     }
 }
 
