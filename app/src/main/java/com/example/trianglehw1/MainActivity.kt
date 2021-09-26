@@ -3,16 +3,13 @@ package com.example.trianglehw1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
-import com.example.trianglehw1.Shapes.Shape
 import com.example.trianglehw1.Shapes.ShapeFactory
 import com.example.trianglehw1.fragments.donate_fragment
 import com.example.trianglehw1.fragments.startup_fragment
 import com.example.trianglehw1.fragments.triangle_fragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_triangle_container.*
-import kotlinx.android.synthetic.main.fragment_triangle_container.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,6 +44,17 @@ class MainActivity : AppCompatActivity() {
         setFragment(triangleFragment)
     }
 
+    fun clearTriangle(view: View) {
+        if(triangleFragment.isVisible) {
+            triangleFragment.edtTriangleSideA.text.clear()
+            triangleFragment.edtTriangleSideB.text.clear()
+            triangleFragment.edtTriangleSideC.text.clear()
+            triangleFragment.lblTriangleError.setText(R.string.clear_text)
+            triangleFragment.ctrTriangleImage.setImageResource(0)
+        }
+
+    }
+
     private fun getValidSides(inputs: Array<String>) :Array<Double> {
         val sides: ArrayList<Double> = arrayListOf()
         inputs.forEach {
@@ -58,18 +66,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         return sides.toDoubleArray().toTypedArray()
-    }
-
-    fun clearTriangle(view: View) {
-        if(triangleFragment.edtTriangleSideA == null)
-            return
-
-        triangleFragment.edtTriangleSideA.text.clear()
-        triangleFragment.edtTriangleSideB.text.clear()
-        triangleFragment.edtTriangleSideC.text.clear()
-        triangleFragment.lblTriangleError.setText(R.string.clear_text)
-        triangleFragment.ctrTriangleImage.setImageResource(0)
-
     }
 
     private fun setNavigationBarRoutes() {
